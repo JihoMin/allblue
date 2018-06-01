@@ -48,3 +48,4 @@ export const environment = {
 4. Open `src/app/app.module.ts` and replace the `firebasePlaceholderConfig` with your environment, i.e `environment.firebase`
 
 5. And finally `ng serve`
+# allblue

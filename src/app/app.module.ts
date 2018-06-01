@@ -19,16 +19,29 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireFunctionsModule } from 'angularfire2/functions';
 
+// project Allblue Modules
+import { DashboardComponent } from './ui-allblue/dashboard/dashboard.component';
+import { DetailsComponent } from './ui-allblue/details/details.component';
+import { MySalesComponent } from './ui-allblue/my-sales/my-sales.component';
+import { SaleConfirmComponent } from './ui-allblue/sale-confirm/sale-confirm.component';
+import { SaleUpdateComponent } from './ui-allblue/sale-update/sale-update.component';
+import { SearchResultComponent } from './ui-allblue/search-result/search-result.component';
+
 // See README for Firebase setup instructions
 // 1. Delete Me!
-import { firebasePlaceholderConfig } from '../env';
 // 2. Add your project credentials to environments/environment.ts
 // 3. Then use it in the imports section below environment.firebase
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent,
+    DetailsComponent,
+    MySalesComponent,
+    SaleConfirmComponent,
+    SaleUpdateComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -38,7 +51,7 @@ import { firebasePlaceholderConfig } from '../env';
     UiModule,
     NotesModule,
     UploadsModule,
-    AngularFireModule.initializeApp(firebasePlaceholderConfig, 'firestarter'),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
