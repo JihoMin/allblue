@@ -12,6 +12,9 @@ import { SaleConfirmComponent } from './ui-allblue/sale-confirm/sale-confirm.com
 import { MySalesComponent } from './ui-allblue/my-sales/my-sales.component';
 import { DashboardComponent } from './ui-allblue/dashboard/dashboard.component';
 import { SaleUpdateComponent } from './ui-allblue/sale-update/sale-update.component';
+import { SearchResultComponent } from 'src/app/ui-allblue/search-result/search-result.component';
+import { CreateSaleComponent } from 'src/app/ui-allblue/create-sale/create-sale.component';
+import { DetailsComponent } from 'src/app/ui-allblue/details/details.component';
 
 
 const routes: Routes = [
@@ -24,6 +27,9 @@ const routes: Routes = [
   { path: 'my_sales', component: MySalesComponent},
   { path: 'sale_confirm', component: SaleConfirmComponent},
   { path: 'sale_update', component: SaleUpdateComponent},
+  { path: 'search_result/:keywork', component: SearchResultComponent},
+  { path: 'create_sale', component: CreateSaleComponent, canActivate: [AuthGuard]},
+  { path: 'detail/:id', component: DetailsComponent}
 ];
 
 @NgModule({

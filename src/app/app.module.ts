@@ -23,11 +23,12 @@ import { AngularFireFunctionsModule } from 'angularfire2/functions';
 
 // project Allblue Modules
 import { DashboardComponent } from './ui-allblue/dashboard/dashboard.component';
-import { DetailsComponent } from './ui-allblue/details/details.component';
+import { DetailsComponent, DialogOverviewExampleDialog } from './ui-allblue/details/details.component';
 import { MySalesComponent } from './ui-allblue/my-sales/my-sales.component';
 import { SaleConfirmComponent } from './ui-allblue/sale-confirm/sale-confirm.component';
 import { SaleUpdateComponent } from './ui-allblue/sale-update/sale-update.component';
 import { SearchResultComponent } from './ui-allblue/search-result/search-result.component';
+import { CreateSaleComponent } from './ui-allblue/create-sale/create-sale.component';
 
 // See README for Firebase setup instructions
 // 1. Delete Me!
@@ -43,8 +44,11 @@ import { SearchResultComponent } from './ui-allblue/search-result/search-result.
     MySalesComponent,
     SaleConfirmComponent,
     SaleUpdateComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    CreateSaleComponent,
+    DialogOverviewExampleDialog
   ],
+  entryComponents: [DialogOverviewExampleDialog],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserTransferStateModule,
@@ -63,6 +67,7 @@ import { SearchResultComponent } from './ui-allblue/search-result/search-result.
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
