@@ -8,6 +8,10 @@ import { NotesListComponent } from './notes/notes-list/notes-list.component';
 import { UploadPageComponent } from './uploads/upload-page/upload-page.component';
 
 import { SsrPageComponent } from './ui/ssr-page/ssr-page.component';
+import { SaleConfirmComponent } from './ui-allblue/sale-confirm/sale-confirm.component';
+import { MySalesComponent } from './ui-allblue/my-sales/my-sales.component';
+import { DashboardComponent } from './ui-allblue/dashboard/dashboard.component';
+import { SaleUpdateComponent } from './ui-allblue/sale-update/sale-update.component';
 
 
 const routes: Routes = [
@@ -15,8 +19,11 @@ const routes: Routes = [
   { path: 'login', component: UserLoginComponent },
   { path: 'notes', component: NotesListComponent,  canActivate: [AuthGuard] },
   { path: 'uploads',  component: UploadPageComponent,  canActivate: [AuthGuard] },
-
   { path: 'ssr', component: SsrPageComponent },
+  { path: 'dashboard', component: DashboardComponent},
+  { path: 'my_sales', component: MySalesComponent},
+  { path: 'sale_confirm', component: SaleConfirmComponent},
+  { path: 'sale_update', component: SaleUpdateComponent},
 ];
 
 @NgModule({

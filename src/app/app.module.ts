@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 // Firestarter App Modules
 import { CoreModule } from './core/core.module';
@@ -46,6 +48,8 @@ import { SearchResultComponent } from './ui-allblue/search-result/search-result.
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserTransferStateModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     AppRoutingModule,
     CoreModule,
     UiModule,
@@ -57,6 +61,7 @@ import { SearchResultComponent } from './ui-allblue/search-result/search-result.
     AngularFireStorageModule,
     AngularFireFunctionsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    
   ],
   bootstrap: [AppComponent]
 })

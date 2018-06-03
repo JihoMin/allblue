@@ -1,8 +1,7 @@
-
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" routerLink="/">
-      <img src="assets/images/angularfirebase.png" width="30px" alt="Firestarter Angular4 Demo App"/> FireStarter
+      <img src="assets/images/angularfirebase.png" width="30px" alt="Firestarter Angular4 Demo App" /> FireStarter
     </a>
 
     <a role="button" class="navbar-burger" (click)="toggleCollapse()" [ngClass]="{'is-active': show}">
@@ -13,7 +12,13 @@
   </div>
 
   <div class="navbar-menu" [ngClass]="{'is-active': show}">
-    <div class="navbar-end"  >
+    <div class="navbar-end">
+      <a class="navbar-item" routerLink="/dashboard">
+        Dashboard
+      </a>
+      <a class="navbar-item" routerLink="/my_sales">
+        My Sales
+      </a>
       <a class="navbar-item" routerLink="/login">
         Login
       </a>
@@ -29,15 +34,3 @@
     </div>
   </div>
 </nav>
-
-
-
-
-
-
-
-
-
-
-
-
