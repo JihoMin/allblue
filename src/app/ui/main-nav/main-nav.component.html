@@ -1,17 +1,17 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" routerLink="/">
-      <img src="assets/images/angularfirebase.png" width="30px" alt="Firestarter Angular4 Demo App" /> FireStarter
-    </a>
+      <h1 class="example-app-name">AllBlue</h1>
+   </a>
 
-    <a role="button" class="navbar-burger" (click)="toggleCollapse()" [ngClass]="{'is-active': show}">
+    <a role="button" class="navbar-burger" (click)="toggleCollapse()" [ngClass]="{'is-active': show1}">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div class="navbar-menu" [ngClass]="{'is-active': show}">
+  <div class="navbar-menu" [ngClass]="{'is-active': show1}">
     <div class="navbar-end">
       <a class="navbar-item" routerLink="/detail/'test'">
         details

@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainNavComponent {
 
-  show = false;
+  show1 = false;
 
   constructor() { }
 
   toggleCollapse() {
-    this.show = !this.show;
+    this.show1 = !this.show1;
   }
 
 }
