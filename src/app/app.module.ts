@@ -30,6 +30,8 @@ import { SaleUpdateComponent } from './ui-allblue/sale-update/sale-update.compon
 import { SearchResultComponent } from './ui-allblue/search-result/search-result.component';
 import { CreateSaleComponent } from './ui-allblue/create-sale/create-sale.component';
 
+import { FormsModule } from '@angular/forms';
+
 // See README for Firebase setup instructions
 // 1. Delete Me!
 // 2. Add your project credentials to environments/environment.ts
@@ -65,7 +67,11 @@ import { CreateSaleComponent } from './ui-allblue/create-sale/create-sale.compon
     AngularFireStorageModule,
     AngularFireFunctionsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    FormsModule,
     
+  ],
+  providers: [ 
+    SearchResultComponent
   ],
   bootstrap: [AppComponent],
   
