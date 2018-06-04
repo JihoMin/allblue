@@ -21,12 +21,11 @@ export class AppComponent {
   logout() {
     this.auth.signOut();
   }
-  onSubmit(){
-    console.log(this.search);
-    this.searchResult.getSearch(this.search);
-    this.router.navigate(['search_result/' + this.search]);
+  // onSubmit(){
+  //   //console.log(this.search);
+  //   //this.searchResult.getSearch();
+  //   //this.router.navigate(['search_result/' + this.search]);
 
-  }
-  //  { path: 'search_result/:keywork', component: SearchResultComponent},
-  //     this.HeroDoc = this.afs.doc(`Hero/${hero.id}`);
+  // }
+
 }

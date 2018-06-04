@@ -29,12 +29,12 @@
         <mat-toolbar color="primary">
             <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
             
-            <form (ngSubmit)="onSubmit()" class="example-form">
+            <div class="example-form">
                 <mat-form-field class="example-full-width">
                     <input matInput placeholder="Search" [(ngModel)]="search" name="search">
                 </mat-form-field>
-                <button mat-raised-button type="submit">Search</button>
-            </form>
+                <button mat-raised-button routerLink="/search_result/{{search}}">Search</button>
+            </div>
             
           </mat-toolbar>
           
