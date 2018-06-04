@@ -6,8 +6,15 @@ import { FileSizePipe } from './file-size.pipe';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    
   ],
-  declarations: [UploadPageComponent, DropZoneDirective, FileSizePipe,]
+  declarations: [UploadPageComponent, DropZoneDirective, FileSizePipe,],
+  exports: [
+    FileSizePipe,
+    UploadPageComponent,
+    DropZoneDirective
+  ]
+
 })
 export class UploadsModule { }
