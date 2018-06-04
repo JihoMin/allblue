@@ -64,7 +64,10 @@ export class UploadPageComponent {
           this.db.collection('photos').add({ path, size: snap.totalBytes });
         }
       }),
-      finalize(() => this.downloadURL = this.storage.ref(path).getDownloadURL() )
+      finalize(() => {
+        this.downloadURL = this.storage.ref(path).getDownloadURL();
+        console.log(this.downloadURL);
+      })
     );
 
 
