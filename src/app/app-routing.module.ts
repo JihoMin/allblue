@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'ssr', component: SsrPageComponent },
   { path: 'dashboard', component: DashboardComponent},
   { path: 'my_sales', component: MySalesComponent},
-  { path: 'sale_confirm', component: SaleConfirmComponent},
+  { path: 'sale_confirm/:id', component: SaleConfirmComponent},
   { path: 'sale_update', component: SaleUpdateComponent},
   { path: 'search_result/:keywork', component: SearchResultComponent},
   { path: 'create_sale', component: CreateSaleComponent, canActivate: [AuthGuard]},
