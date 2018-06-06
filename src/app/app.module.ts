@@ -32,6 +32,8 @@ import { CreateSaleComponent } from './ui-allblue/create-sale/create-sale.compon
 
 import { FormsModule } from '@angular/forms';
 
+import { AngularFireDatabaseModule } from 'angularfire2/database';//
+
 // See README for Firebase setup instructions
 // 1. Delete Me!
 // 2. Add your project credentials to environments/environment.ts
@@ -63,6 +65,7 @@ import { FormsModule } from '@angular/forms';
     UploadsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireFunctionsModule,

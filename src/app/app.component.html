@@ -30,10 +30,7 @@
             <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
             
             <div class="example-form">
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Search" [(ngModel)]="search" name="search">
-                </mat-form-field>
-                <button mat-raised-button routerLink="/search_result/{{search}}">Search</button>
+                <button mat-raised-button (click)="goSearchResult()" >Search</button>
             </div>
             
           </mat-toolbar>
@@ -98,4 +95,4 @@
       .github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
     </style>
   </div>
-</div>
+

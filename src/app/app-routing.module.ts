@@ -27,7 +27,8 @@ const routes: Routes = [
   { path: 'my_sales', component: MySalesComponent},
   { path: 'sale_confirm', component: SaleConfirmComponent},
   { path: 'sale_update', component: SaleUpdateComponent},
-  { path: 'search_result/:keyword', component: SearchResultComponent},
+  //{ path: 'search_result/:keyword', component: SearchResultComponent}, // 은지가 result page 수정함.
+  { path: 'search_result', component: SearchResultComponent},
   { path: 'create_sale', component: CreateSaleComponent, canActivate: [AuthGuard]},
   { path: 'detail/:id', component: DetailsComponent}
 ];
