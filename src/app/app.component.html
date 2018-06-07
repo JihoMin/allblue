@@ -30,10 +30,7 @@
             <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
             
             <div class="example-form">
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Search" [(ngModel)]="search" name="search">
-                </mat-form-field>
-                <button mat-raised-button routerLink="/search_result/{{search}}">Search</button>
+                <button mat-raised-button (click)="goSearchResult()" >Search</button>
             </div>
             
     </mat-toolbar>
@@ -53,6 +50,7 @@
               <notification-message></notification-message>
         
               <router-outlet></router-outlet>
+              <dashboard></dashboard>
             </main>
           </div>
       

@@ -1,56 +1,113 @@
-<h1>
-  {{keyword}} 검색 결과
-</h1>
+<h1><strong>Product Name and Tag Search</strong></h1>
+<div>
+    <div class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Product Name Search" (keyup)="search_productName()" [(ngModel)]="searchValue_productName">
+        </mat-form-field>
+    </div>
 
-<h3>
-  게시물 제목
-</h3>
-<mat-divider></mat-divider>
-<br>
-<div>
-<mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+      <h2>[Product Name Search Result]</h2>  
+      <div id="flex">
+              <a *ngFor="let result of results_productName | async" >
+                <mat-card class="example-card">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title >{{result.title}}</mat-card-title>
+                      <mat-card-subtitle>{{result.productName}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image src={{result.imageURL}} alt="Photo of a Shiba Inu">
+                    <mat-card-content>
+                        <p>
+                          {{result.tag1}}
+                        </p>
+                        <p>
+                          {{result.tag2}}
+                        </p>
+                        <p>
+                          {{result.tag3}}
+                        </p>
+                    </mat-card-content>
+                  </mat-card>
+              </a>
+        </div>
+    </div>
 </div>
-<h3>
-  태그
-</h3>
-<mat-divider></mat-divider>
-<br>
 <div>
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+    <!--나중에 아래 Tag 인풋 박스는 삭제할 것이다. 대쉬 보드에서 누르면 그 단어로 검색할 것이다.-->
+    <div class="example-form">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Tag Search" (keyup)="search_tag()" [(ngModel)]="searchValue_tag">
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+        <h2>[Tag Search Result]</h2>
+        <div id="flex">
+              <a *ngFor="let result of results_tag1 | async" >
+                <mat-card class="example-card">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title >{{result.title}}</mat-card-title>
+                      <mat-card-subtitle>{{result.productName}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image src={{result.imageURL}} alt="Photo of a Shiba Inu">
+                    <mat-card-content>
+                      <p>
+                        {{result.tag1}}
+                      </p>
+                      <p>
+                        {{result.tag2}}
+                      </p>
+                      <p>
+                        {{result.tag3}}
+                      </p>
+                    </mat-card-content>
+                  </mat-card>
+              </a>
+              <a *ngFor="let result of results_tag2 | async" >
+                  <mat-card class="example-card">
+                      <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title >{{result.title}}</mat-card-title>
+                        <mat-card-subtitle>{{result.productName}}</mat-card-subtitle>
+                      </mat-card-header>
+                      <img mat-card-image src={{result.imageURL}} alt="Photo of a Shiba Inu">
+                      <mat-card-content>
+                        <p>
+                          {{result.tag1}}
+                        </p>
+                        <p>
+                          {{result.tag2}}
+                        </p>
+                        <p>
+                          {{result.tag3}}
+                        </p>
+                      </mat-card-content>
+                    </mat-card>
+                </a>
+                <a *ngFor="let result of results_tag3 | async" >
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                          <div mat-card-avatar class="example-header-image"></div>
+                          <mat-card-title >{{result.title}}</mat-card-title>
+                          <mat-card-subtitle>{{result.productName}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src={{result.imageURL}} alt="Photo of a Shiba Inu">
+                        <mat-card-content>
+                          <p>
+                            {{result.tag1}}
+                          </p>
+                          <p>
+                            {{result.tag2}}
+                          </p>
+                          <p>
+                            {{result.tag3}}
+                          </p>
+                        </mat-card-content>
+                      </mat-card>
+                </a>
+        </div>
+    </div>
 </div>
+

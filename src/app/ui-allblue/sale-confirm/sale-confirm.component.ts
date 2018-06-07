@@ -1,16 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import { JsonpInterceptor } from '@angular/common/http';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'sale-confirm',
   templateUrl: './sale-confirm.component.html',
   styleUrls: ['./sale-confirm.component.scss']
 })
-export class SaleConfirmComponent implements OnInit {
-  displayedColumns = ['position', 'name', 'phonenumber', 'accepted', 'action'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  constructor() { }
+export class SaleConfirmComponent implements OnInit {
+  joiners: Observable<any[]>;
+  displayedColumns = ['position', 'name', 'accepted', 'action'];
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  id: string;
+  constructor(public afstore: AngularFirestore,private route: ActivatedRoute, private auth: AuthService){
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.auth.user.subscribe(doc => {
+      this.joiners = afstore.collection(doc.uid).doc(this.id).collection('joiner').valueChanges();
+    })
+    
+  }
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
@@ -26,7 +39,6 @@ export class SaleConfirmComponent implements OnInit {
 export interface PeriodicElement {
   name: string;
   position: number;
-  phonenumber: string;
   accepted: string;
 }
 
