@@ -14,7 +14,9 @@ export class SearchResultComponent implements OnInit {
   constructor(    
     private route: ActivatedRoute,
     private router: Router,
-    private location: Location) {}
+    private location: Location) {
+      this.getSearch();
+    }
   
   ngOnInit() {
     this.getSearch();
@@ -23,5 +25,5 @@ export class SearchResultComponent implements OnInit {
     this.keyword = this.route.snapshot.paramMap.get('keyword');
     console.log("겟 서치 키워드 " + this.keyword);
     //location.reload();
-   }
+  }
 }

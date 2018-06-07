@@ -50,20 +50,29 @@ export class CreateSaleComponent implements OnInit {
   ngOnInit() {
   }
 
-  gaeshi(title: String, 
+  gaeshi(
+    title: String, 
     productName: String, 
     price: String,
     date: String,
     time: String,
-    minutes: String,
     place: String,
     description: String,
-    tags: string) {
+    tag1: string,
+    tag2: string,
+    tag3: string,
+  ) {
 
       let downloadURL;
       let userID;
       
-      console.log(time, tags, price, minutes)
+      if(!tag1)
+        tag1 = " ";
+      if(!tag2)
+        tag2 = " ";
+      if(!tag3)
+        tag3 = " ";
+      
       this.auth.user.subscribe(doc => {
        userID = doc.uid;
         this.downloadURL.subscribe(url => {
@@ -77,9 +86,12 @@ export class CreateSaleComponent implements OnInit {
             'place': place,
             'price': price,
             'productName': productName,
-            'time': time + '시' + minutes + '분',
+            'time': time + '시',
             'title': title,
             'userID': userID,
+            'tag1': tag1,
+            'tag2': tag2,
+            'tag3': tag3,
           }) 
         })
       })
