@@ -1,10 +1,17 @@
-.example-card {
-    max-width: 400px;
+.example-header-image {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4aNQS9iljGsevhN2je5DFpWjj0tJFYcL62N-kgBQVl3rOkkro');
+    background-size: cover;
 }
 
-.example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
+.example-card {
+    max-width: 400px; //padding: 0px;
+    margin: 20px;
+}
+
+.example-img {
+    object-fit: cover;
+    max-width: 400px;
+    padding: 30px;
 }
 
 .flex-container {
