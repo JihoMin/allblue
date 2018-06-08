@@ -32,6 +32,8 @@ export class DetailsComponent implements OnInit {
     tag3: '',
   }
 
+  joiners: Observable<any[]>;
+
   animal: string;
   name: string;
   id: string;
@@ -75,6 +77,7 @@ export class DetailsComponent implements OnInit {
       this.sale.userID = doc.data().userID;
       this.sale.account = doc.data().account;
     });
+    this.joiners=this.salesCollection.doc(this.id).collection('joiners').valueChanges();
   }
   openDialog(): void {
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
