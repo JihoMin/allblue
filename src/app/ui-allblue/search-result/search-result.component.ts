@@ -85,7 +85,7 @@ export class SearchResultComponent implements OnInit {
       .valueChanges();
 
     self.results_tag2 = self.afs.collection(`sales`, ref => ref
-      .orderBy("tag2") 
+      .orderBy("tag2")
       .startAt(self.searchValue_tag)
       .endAt(self.searchValue_tag + "\uf8ff")
       .limit(10))
