@@ -74,7 +74,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';//
     
   ],
   providers: [ 
-    SearchResultComponent
+    SearchResultComponent,
   ],
   bootstrap: [AppComponent],
   

@@ -49,8 +49,8 @@ export class SearchResultComponent implements OnInit {
     this.Sale = this.SalesCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Sales;
-        //const id = a.payload.doc.id;
-        return data;
+        const id = a.payload.doc.id;
+        return {data, id};
       }))
     );
     return this.Sale;
@@ -62,6 +62,28 @@ export class SearchResultComponent implements OnInit {
     })
   }
 */
+
+  search_productName() {
+    let self = this;
+    if(self.searchValue_productName != ''){ // 빈칸이 안들어가게 하기
+      self.results_productName = self.afs.collection(`sales`, ref => ref
+        .orderBy("productName") 
+        .startAt(self.searchValue_productName)
+        .endAt(self.searchValue_productName + "\uf8ff")
+        .limit(10))
+        .snapshotChanges().pipe(
+          map(actions => actions.map(a => {
+            const data = a.payload.doc.data() as Sales;
+            const id = a.payload.doc.id;
+            return {data, id};
+          }))
+        ).subscribe(S => {
+          this.sales = S;
+        }
+        )
+    }
+  }
+  /*
   search_productName() {
     let self = this;
     if(self.searchValue_productName != ''){ // 빈칸이 안들어가게 하기
@@ -73,6 +95,7 @@ export class SearchResultComponent implements OnInit {
         .valueChanges();
     }
   }
+  */
   search_tag(tag) { // 대쉬보드에서 이 함수에 인자 넣어서 부르게 하기 
     let self = this;
     //self.search_tag = tag;

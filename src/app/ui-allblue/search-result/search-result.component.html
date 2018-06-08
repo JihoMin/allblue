@@ -1,3 +1,4 @@
+
 <h1><strong>Product Name and Tag Search</strong></h1>
 <div>
     <div class="example-form">
@@ -9,11 +10,11 @@
     <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
       <h2>[Product Name Search Result]</h2>  
       <div id="flex">
-              <a *ngFor="let result of results_productName | async" >
+                <a *ngFor="let result of sales">
                 <mat-card class="example-card">
                     <mat-card-header>
                       <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title >{{result.title}}</mat-card-title>
+                      <mat-card-title >{{result.id}}</mat-card-title>
                       <mat-card-subtitle>{{result.productName}}</mat-card-subtitle>
                     </mat-card-header>
                     <img mat-card-image src={{result.imageURL}} alt="Photo of a Shiba Inu">
@@ -28,13 +29,14 @@
                           {{result.tag3}}
                         </p>
                     </mat-card-content>
+                    <button mat-button routerLink="/detail/{{result.id}}">Detail</button>
                   </mat-card>
               </a>
         </div>
     </div>
 </div>
 <div>
-    <!--나중에 아래 Tag 인풋 박스는 삭제할 것이다. 대쉬 보드에서 누르면 그 단어로 검색할 것이다.-->
+
     <div class="example-form">
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Tag Search" (keyup)="search_tag()" [(ngModel)]="searchValue_tag">
@@ -44,7 +46,7 @@
     <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
         <h2>[Tag Search Result]</h2>
         <div id="flex">
-              <a *ngFor="let result of results_tag1 | async" >
+              <a *ngFor="let result of results_tag1 | async">
                 <mat-card class="example-card">
                     <mat-card-header>
                       <div mat-card-avatar class="example-header-image"></div>
@@ -63,6 +65,7 @@
                         {{result.tag3}}
                       </p>
                     </mat-card-content>
+                    <button mat-button routerLink="/detail/{{result}}">Detail</button>
                   </mat-card>
               </a>
               <a *ngFor="let result of results_tag2 | async" >
@@ -84,6 +87,7 @@
                           {{result.tag3}}
                         </p>
                       </mat-card-content>
+                      <button mat-button routerLink="/detail/{{result.id}}">Detail</button>
                     </mat-card>
                 </a>
                 <a *ngFor="let result of results_tag3 | async" >
@@ -105,9 +109,9 @@
                             {{result.tag3}}
                           </p>
                         </mat-card-content>
+                        <button mat-button routerLink="/detail/{{result}}">Detail</button>
                       </mat-card>
                 </a>
         </div>
     </div>
 </div>
-
