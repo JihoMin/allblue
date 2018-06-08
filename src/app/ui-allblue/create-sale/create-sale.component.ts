@@ -43,6 +43,7 @@ export class CreateSaleComponent implements OnInit {
     private storage: AngularFireStorage,
     private db: AngularFirestore,
     private auth: AuthService,
+    private location: Location,
   ) { 
     this.salesCollection = this.db.collection('sales');
   }
@@ -97,9 +98,7 @@ export class CreateSaleComponent implements OnInit {
           }) 
         })
       })
-
-      
-      
+      this.location.back();
     }
 
   startUpload(event: FileList){
