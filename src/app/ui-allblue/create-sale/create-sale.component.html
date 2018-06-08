@@ -103,12 +103,18 @@
             <mat-option value="육류">육류</mat-option>
             <mat-option value="생선류">생선류</mat-option>
             <mat-option value="유제품">유제품</mat-option>
-            <mat-option value="채소/과일">채소/과일</mat-option>
-            <mat-option value="조미료/소스">조미료/소스</mat-option>
+            <mat-option value="채소">채소</mat-option>
+            <mat-option value="과일">과일</mat-option>
+            <mat-option value="조미료">조미료</mat-option>
+            <mat-option value="소스">소스</mat-option>
             <mat-option value="즉석식품">즉석식품</mat-option>
             <mat-option value="음료">음료</mat-option>
             <mat-option value="생활용품">생활용품</mat-option>
         </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput #account placeholder="계좌 번호">
       </mat-form-field>
 
       <h3>재료 사진 올리기</h3>
@@ -148,7 +154,8 @@
                description.value,
                tag1.value,
                tag2.value,
-               tag3.value)">게시 하기</button>
+               tag3.value,
+               account.value)">게시 하기</button>
     
     </div>
   </article>

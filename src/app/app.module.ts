@@ -23,7 +23,7 @@ import { AngularFireFunctionsModule } from 'angularfire2/functions';
 
 // project Allblue Modules
 import { DashboardComponent } from './ui-allblue/dashboard/dashboard.component';
-import { DetailsComponent, DialogOverviewExampleDialog } from './ui-allblue/details/details.component';
+import { DetailsComponent, DialogOverviewExampleDialog } from './ui-allblue/details-s/details-s.component';
 import { MySalesComponent } from './ui-allblue/my-sales/my-sales.component';
 import { SaleConfirmComponent } from './ui-allblue/sale-confirm/sale-confirm.component';
 import { SaleUpdateComponent } from './ui-allblue/sale-update/sale-update.component';
@@ -32,7 +32,8 @@ import { CreateSaleComponent } from './ui-allblue/create-sale/create-sale.compon
 
 import { FormsModule } from '@angular/forms';
 
-import { AngularFireDatabaseModule } from 'angularfire2/database';//
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 
 // See README for Firebase setup instructions
 // 1. Delete Me!
@@ -50,7 +51,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';//
     SaleUpdateComponent,
     SearchResultComponent,
     CreateSaleComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    
   ],
   entryComponents: [DialogOverviewExampleDialog],
   imports: [
