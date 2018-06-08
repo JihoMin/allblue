@@ -12,24 +12,19 @@ export class AppComponent {
   title = 'app';
   search = '';
   constructor(
-    private auth: AuthService, 
+    private auth: AuthService,
     private router: Router,
     private searchResult: SearchResultComponent,
   ) {
   }
-  
+
   logout() {
     this.auth.signOut();
   }
-  goSearchResult(){
+  goSearchResult() {
     console.log("잘눌린다~!");
     this.router.navigate(['search_result']);
   }
-  // onSubmit(){
-  //   //console.log(this.search);
-  //   //this.searchResult.getSearch();
-  //   //this.router.navigate(['search_result/' + this.search]);
 
-  // }
 
 }
