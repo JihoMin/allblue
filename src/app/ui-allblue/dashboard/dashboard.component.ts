@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchResultComponent } from '../search-result/search-result.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'dashboard',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(public src: SearchResultComponent, private router: Router) { }
 
   ngOnInit() {
   }
 
+  onClick(){
+    this.router.navigate(['search_result']);
+  }
 }
