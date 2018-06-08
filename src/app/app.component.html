@@ -11,6 +11,7 @@
       <p class="card-text">Login to get started...</p>
       <button class="button" routerLink="/login">Login</button>
     </ng-template>
+
     <!-- User logged in -->
     <ng-template #authenticated>
       <div *ngIf="auth.user | async as user">
@@ -18,25 +19,34 @@
         <img class="card-img-top" [src]="user.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" width=50px>
         <p class="text-truncate">UID: {{ user.uid }}</p>
         <button class="button" (click)="logout()">Logout</button>
+        <hr>
+        <a class="navbar-item" routerLink="/my_sales">
+          My Sales
+        </a>
+        <a class="navbar-item" routerLink="/create_sale/">
+          Write
+        </a>
       </div>
     </ng-template>
   </mat-drawer>
+
   <div class="example-sidenav-content">
-    <mat-toolbar color="primary">
-      <button mat-icon-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <div class="example-form">
-        <button mat-raised-button color="primary" (click)="goSearchResult()">Search</button>
-      </div>
+    <mat-toolbar color="warn">
+      <mat-toolbar-row>
+        <button mat-icon-button (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="example-spacer"></span>
+        <button mat-button routerLink="/search_result">Search</button>
+        <button mat-button *ngIf="!(auth.user | async)" routerLink="/login">Login</button>
+        <button mat-button *ngIf="(auth.user | async)" (click)="logout()">Logout</button>
+        <button mat-button routerLink=".">Home</button>
+      </mat-toolbar-row>
     </mat-toolbar>
-    <main-nav></main-nav>
   </div>
 
   <div class="example-sidenav-content">
     <div id="wrapper">
-      <main-nav></main-nav>
-
       <div class="content columns">
         <aside class="column is-1 is-offset-1">
         </aside>

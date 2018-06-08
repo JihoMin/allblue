@@ -21,10 +21,7 @@ export class AppComponent {
   logout() {
     this.auth.signOut();
   }
-  goSearchResult() {
-    console.log("잘눌린다~!");
-    this.router.navigate(['search_result']);
-  }
+
 
 
 }
