@@ -73,9 +73,10 @@ export class SearchResultComponent implements OnInit {
         .valueChanges();
     }
   }
+  
   search_tag(tag) { // 대쉬보드에서 이 함수에 인자 넣어서 부르게 하기 
     let self = this;
-    //self.search_tag = tag;
+    self.search_tag = tag;
     if(self.searchValue_tag != ''){
       self.results_tag1 = self.afs.collection(`sales`, ref => ref
       .orderBy("tag1") 

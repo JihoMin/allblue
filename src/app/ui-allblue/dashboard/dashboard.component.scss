@@ -1,16 +1,13 @@
 .example-card {
-    max-width: 200px;
-    //padding: 0px;
+    max-width: 200px; //padding: 0px;
     //border: 0px;
+    border: 20px;
 }
 
 mat-card img {
-     object-fit: cover;
-     max-width: 200px;
-    /*this makes de image in src fit to the size of specified below*/
-    // width: 100%;
-    // /* Here you can use wherever you want to specify the width and also the height of the <img>*/
-    // height: 80%;
+    object-fit: cover;
+    max-width: 200px;
+    padding: 30px;
 }
 
 .flex-container {
