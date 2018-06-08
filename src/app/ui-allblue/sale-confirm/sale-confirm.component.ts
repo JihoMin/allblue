@@ -5,6 +5,7 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'sale-confirm',
@@ -13,38 +14,41 @@ import { AuthService } from '../../core/auth.service';
 })
 
 export class SaleConfirmComponent implements OnInit {
-  joiners: Observable<any[]>;
+  joiners: any[];
   displayedColumns = ['position', 'name', 'accepted', 'action'];
   //dataSource = new MatTableDataSource(ELEMENT_DATA);
   salesID: string;
 
   constructor(public afstore: AngularFirestore,private route: ActivatedRoute, private auth: AuthService){
+    
     this.salesID = this.route.snapshot.paramMap.get('id');
     this.auth.user.subscribe(doc => {
-      this.joiners = afstore.collection('sales').doc(this.salesID).collection('joiners').valueChanges();
+      afstore.collection('sales').doc(this.salesID).collection('joiners').snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { data, id };
+        }))
+      ).subscribe(S => {
+        this.joiners = S;
+      })
     });
 
-  }
-
-  asd(){
-
-  }
-
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-    //this.dataSource.filter = filterValue;
   }
 
   ngOnInit() {
   }
 
-  onClickAccept(){
-
+  onClickAccept(joinerID){
+    this.afstore.collection('sales').doc(this.salesID).collection('joiners').doc(joinerID).update({
+      "state" : "Accepted!"
+    });
   }
 
-  onClickReject(){
-    
+  onClickReject(joinerID){
+    this.afstore.collection('sales').doc(this.salesID).collection('joiners').doc(joinerID).update({
+      "state" : "Rejected!!"
+    });
   }
 
 }
