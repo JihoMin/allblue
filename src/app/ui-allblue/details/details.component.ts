@@ -52,9 +52,8 @@ export class DetailsComponent implements OnInit {
     this.SalesDOC = this.afs.doc<Sales>('sales/' + this.id);
     this.SalesDOC.valueChanges().subscribe(S => this.sales = S);
     console.log(this.sales);
-    
   }
-  //
+  
 
   openDialog(): void {
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
