@@ -51,17 +51,17 @@ export class SearchResultComponent implements OnInit {
 
   search_productName() {
     let self = this;
-    if(self.searchValue_productName != ''){ // 빈칸이 안들어가게 하기
+    if (self.searchValue_productName != '') { // 빈칸이 안들어가게 하기
       self.results_productName = self.afs.collection(`sales`, ref => ref
-        .orderBy("productName") 
+        .orderBy("productName")
         .startAt(self.searchValue_productName)
         .endAt(self.searchValue_productName + "\uf8ff")
         .limit(10))
         .snapshotChanges().pipe(
           map(actions => actions.map(a => {
-            const data = a.payload.doc.data() as Sales; 
+            const data = a.payload.doc.data() as Sales;
             const id = a.payload.doc.id;
-            return {data, id};
+            return { data, id };
           }))
         ).subscribe(S => {
           this.sales = S;
@@ -71,13 +71,13 @@ export class SearchResultComponent implements OnInit {
   }
 
 
-  search_tag() { 
+  search_tag() {
     let self = this;
     const keyword = this.route.snapshot.paramMap.get('keyword');
     self.searchValue_tag = keyword;
     console.log("받아온 태그 정보 : " + keyword);
 
-    if(keyword != null && self.searchValue_tag != ''){
+    if (keyword != null && self.searchValue_tag != '') {
       self.results_tag1 = self.afs.collection(`sales`, ref => ref
         .orderBy("tag1")
         .startAt(self.searchValue_tag)
@@ -85,30 +85,30 @@ export class SearchResultComponent implements OnInit {
         .limit(10))
         .snapshotChanges().pipe(
           map(actions => actions.map(a => {
-            const data = a.payload.doc.data() as Sales; 
+            const data = a.payload.doc.data() as Sales;
             const id = a.payload.doc.id;
-            return {data, id};
+            return { data, id };
           }))
         ).subscribe(S => {
           this.sales1 = S;
         }
         )
 
-    self.results_tag2 = self.afs.collection(`sales`, ref => ref
-      .orderBy("tag2") 
-      .startAt(self.searchValue_tag)
-      .endAt(self.searchValue_tag + "\uf8ff")
-      .limit(10))
-      .snapshotChanges().pipe(
-        map(actions => actions.map(a => {
-          const data = a.payload.doc.data() as Sales; 
-          const id = a.payload.doc.id;
-          return {data, id};
-        }))
-      ).subscribe(S => {
-        this.sales2 = S;
-      }
-      )
+      self.results_tag2 = self.afs.collection(`sales`, ref => ref
+        .orderBy("tag2")
+        .startAt(self.searchValue_tag)
+        .endAt(self.searchValue_tag + "\uf8ff")
+        .limit(10))
+        .snapshotChanges().pipe(
+          map(actions => actions.map(a => {
+            const data = a.payload.doc.data() as Sales;
+            const id = a.payload.doc.id;
+            return { data, id };
+          }))
+        ).subscribe(S => {
+          this.sales2 = S;
+        }
+        )
       self.results_tag3 = self.afs.collection(`sales`, ref => ref
         .orderBy("tag3")
         .startAt(self.searchValue_tag)
@@ -116,9 +116,9 @@ export class SearchResultComponent implements OnInit {
         .limit(10))
         .snapshotChanges().pipe(
           map(actions => actions.map(a => {
-            const data = a.payload.doc.data() as Sales; 
+            const data = a.payload.doc.data() as Sales;
             const id = a.payload.doc.id;
-            return {data, id};
+            return { data, id };
           }))
         ).subscribe(S => {
           this.sales3 = S;
