@@ -22,6 +22,9 @@ export class SearchResultComponent implements OnInit {
   SalesCollection: AngularFirestoreCollection<Sales>;
   Sale: Observable<Sales[]>; // 리턴 값이다. 
   sales: Sales[] = []; // html로 연동하기 위한 변수
+  sales1: Sales[] = []; // html로 연동하기 위한 변수
+  sales2: Sales[] = []; // html로 연동하기 위한 변수
+  sales3: Sales[] = []; // html로 연동하기 위한 변수
   //
   searchValue_productName: string = "";
   searchValue_tag: string = ""; // 나중에 대쉬보드에서 태그 클릭하면 그 값을 여기다가 넣어주기!!!!
@@ -39,28 +42,9 @@ export class SearchResultComponent implements OnInit {
   ) {
   }
   ngOnInit() {
-    //this.receiveSales();
+    this.search_tag();
 
   }
-/*
-  getSales(){
-    this.SalesCollection = this.afs.collection<Sales>('sales');
-    this.Sale = this.SalesCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => {
-        const data = a.payload.doc.data() as Sales;
-        const id = a.payload.doc.id;
-        return {data, id};
-      }))
-    );
-    return this.Sale;
-  }
-  receiveSales(){
-    this.getSales().subscribe(S =>{
-      console.log("대쉬보드에서 히어로 받았다");
-      this.sales = S;
-    })
-  }
-*/
 
   search_productName() {
     let self = this;
@@ -82,53 +66,61 @@ export class SearchResultComponent implements OnInit {
         )
     }
   }
-  /*
-    getSales(){
-      this.SalesCollection = this.afs.collection<Sales>('sales');
-      this.Sale = this.SalesCollection.snapshotChanges().pipe(
-        map(actions => actions.map(a => {
-          const data = a.payload.doc.data() as Sales;
-          //const id = a.payload.doc.id;
-          return data;
-        }))
-      );
-      return this.Sale;
-    }
-    receiveSales(){
-      this.getSales().subscribe(S =>{
-        console.log("대쉬보드에서 히어로 받았다");
-        this.sales = S;
-      })
-    }
-  */
 
 
-  search_tag() { // 대쉬보드에서 이 함수에 인자 넣어서 부르게 하기 
+  search_tag() { 
     let self = this;
-    //self.search_tag = tag;
-    //console.log("받아온 태그 정보 : " + tag);
+    const keyword = this.route.snapshot.paramMap.get('keyword');
+    self.searchValue_tag = keyword;
+    console.log("받아온 태그 정보 : " + keyword);
 
-    if(self.searchValue_tag != ''){
+    if(keyword != null && self.searchValue_tag != ''){
       self.results_tag1 = self.afs.collection(`sales`, ref => ref
         .orderBy("tag1")
         .startAt(self.searchValue_tag)
         .endAt(self.searchValue_tag + "\uf8ff")
         .limit(10))
-        .valueChanges();
+        .snapshotChanges().pipe(
+          map(actions => actions.map(a => {
+            const data = a.payload.doc.data() as Sales; 
+            const id = a.payload.doc.id;
+            return {data, id};
+          }))
+        ).subscribe(S => {
+          this.sales1 = S;
+        }
+        )
 
     self.results_tag2 = self.afs.collection(`sales`, ref => ref
       .orderBy("tag2") 
       .startAt(self.searchValue_tag)
       .endAt(self.searchValue_tag + "\uf8ff")
       .limit(10))
-      .valueChanges();
-
+      .snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as Sales; 
+          const id = a.payload.doc.id;
+          return {data, id};
+        }))
+      ).subscribe(S => {
+        this.sales2 = S;
+      }
+      )
       self.results_tag3 = self.afs.collection(`sales`, ref => ref
         .orderBy("tag3")
         .startAt(self.searchValue_tag)
         .endAt(self.searchValue_tag + "\uf8ff")
         .limit(10))
-        .valueChanges();
+        .snapshotChanges().pipe(
+          map(actions => actions.map(a => {
+            const data = a.payload.doc.data() as Sales; 
+            const id = a.payload.doc.id;
+            return {data, id};
+          }))
+        ).subscribe(S => {
+          this.sales3 = S;
+        }
+        )
     }
   }
 }
