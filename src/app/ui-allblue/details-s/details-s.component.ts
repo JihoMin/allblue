@@ -139,6 +139,7 @@ export class DialogOverviewExampleDialog {
         "email": doc.email
       })
     })
+    this.dialogRef.close();
   }
   onNoClick(): void {
     this.dialogRef.close();
