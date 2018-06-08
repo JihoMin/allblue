@@ -1,8 +1,5 @@
-<h1>
-  <strong>Product Name and Tag Search</strong>
-</h1>
 
-<div>
+<div *ngIf="!keyword">
   <div class="example-form">
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Product Name Search" (keyup)="search_productName()" [(ngModel)]="searchValue_productName">
@@ -10,7 +7,7 @@
   </div>
 
   <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-    <h2>[Product Name Search Result]</h2>
+    <h1><strong>상품명 검색 결과</strong></h1>
     <div id="flex">
       <a *ngFor="let result of sales">
         <mat-card class="example-card">
@@ -22,13 +19,13 @@
           <img mat-card-image src={{result.data.imageURL}} alt="Photo of a Shiba Inu">
           <mat-card-content>
             <p>
-              {{result.data.tag1}}
+              #{{result.data.tag1}}
             </p>
             <p>
-              {{result.data.tag2}}
+              #{{result.data.tag2}}
             </p>
             <p>
-              {{result.data.tag3}}
+              #{{result.data.tag3}}
             </p>
           </mat-card-content>
           <button mat-button routerLink="/detail/{{result.id}}">Detail</button>
@@ -46,8 +43,8 @@
     </mat-form-field>
   </div>
 -->
-  <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-    <h2>[Tag Search Result]</h2>
+  <div *ngIf="keyword" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <h1><strong>{{keyword}} 카테고리 검색 결과 </strong></h1>
     <div id="flex">
       <a *ngFor="let result of sales1">
         <mat-card class="example-card">
@@ -59,13 +56,13 @@
           <img mat-card-image src={{result.data.imageURL}} alt="Photo of a Shiba Inu">
           <mat-card-content>
             <p>
-              {{result.data.tag1}}
+              #{{result.data.tag1}}
             </p>
             <p>
-              {{result.data.tag2}}
+              #{{result.data.tag2}}
             </p>
             <p>
-              {{result.data.tag3}}
+              #{{result.data.tag3}}
             </p>
           </mat-card-content>
           <button mat-button routerLink="/detail/{{result.id}}">Detail</button>
@@ -81,13 +78,13 @@
           <img mat-card-image src={{result.data.imageURL}} alt="Photo of a Shiba Inu">
           <mat-card-content>
             <p>
-              {{result.data.tag1}}
+              #{{result.data.tag1}}
             </p>
             <p>
-              {{result.data.tag2}}
+              #{{result.data.tag2}}
             </p>
             <p>
-              {{result.data.tag3}}
+              #{{result.data.tag3}}
             </p>
           </mat-card-content>
           <button mat-button routerLink="/detail/{{result.id}}">Detail</button>
@@ -103,13 +100,13 @@
           <img mat-card-image src={{result.data.imageURL}} alt="Photo of a Shiba Inu">
           <mat-card-content>
             <p>
-              {{result.data.tag1}}
+              #{{result.data.tag1}}
             </p>
             <p>
-              {{result.data.tag2}}
+              #{{result.data.tag2}}
             </p>
             <p>
-              {{result.data.tag3}}
+              #{{result.data.tag3}}
             </p>
           </mat-card-content>
           <button mat-button routerLink="/detail/{{result.id}}">Detail</button>

@@ -35,6 +35,9 @@ export class SearchResultComponent implements OnInit {
 
   mytag: string;
 
+  isTitleSearch: string;
+  keyword: string;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -46,10 +49,12 @@ export class SearchResultComponent implements OnInit {
   }
   ngOnInit() {
     this.search_tag();
+    
 
   }
 
   search_productName() {
+   
     let self = this;
     if (self.searchValue_productName != '') { // 빈칸이 안들어가게 하기
       self.results_productName = self.afs.collection(`sales`, ref => ref
@@ -73,11 +78,13 @@ export class SearchResultComponent implements OnInit {
 
   search_tag() {
     let self = this;
-    const keyword = this.route.snapshot.paramMap.get('keyword');
-    self.searchValue_tag = keyword;
-    console.log("받아온 태그 정보 : " + keyword);
+    
+    this.keyword = this.route.snapshot.paramMap.get('keyword');
+    
+    self.searchValue_tag = this.keyword;
+    console.log("받아온 태그 정보 : " + this.keyword);
 
-    if (keyword != null && self.searchValue_tag != '') {
+    if(this.keyword != null && self.searchValue_tag != ''){
       self.results_tag1 = self.afs.collection(`sales`, ref => ref
         .orderBy("tag1")
         .startAt(self.searchValue_tag)
