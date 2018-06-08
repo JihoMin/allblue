@@ -33,6 +33,8 @@ export class SearchResultComponent implements OnInit {
   results_tag2: any;
   results_tag3: any;
 
+  mytag: string;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -40,6 +42,7 @@ export class SearchResultComponent implements OnInit {
     public afs: AngularFirestore, // 
     private db: AngularFireDatabase,
   ) {
+    this.mytag = this.route.snapshot.paramMap.get('keyword');
   }
   ngOnInit() {
     this.search_tag();
