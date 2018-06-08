@@ -137,6 +137,8 @@ export class DialogOverviewExampleDialog {
       this.salesCollection.doc(this.data.docID).collection('Joiners').add({
         "joinerID": doc.uid,
         "isConfirmed": "false"
+      }).then((doc)=>{
+        this.dialogRef.close()
       })
     })
   }
