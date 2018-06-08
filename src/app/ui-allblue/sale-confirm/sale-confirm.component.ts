@@ -17,13 +17,17 @@ export class SaleConfirmComponent implements OnInit {
   displayedColumns = ['position', 'name', 'accepted', 'action'];
   //dataSource = new MatTableDataSource(ELEMENT_DATA);
   salesID: string;
-  
+
   constructor(public afstore: AngularFirestore,private route: ActivatedRoute, private auth: AuthService){
     this.salesID = this.route.snapshot.paramMap.get('id');
     this.auth.user.subscribe(doc => {
-      this.joiners = afstore.collection(doc.uid).doc(this.salesID).collection('joiner').valueChanges();
-    })
-    
+      this.joiners = afstore.collection('sales').doc(this.salesID).collection('joiners').valueChanges();
+    });
+
+  }
+
+  asd(){
+
   }
 
   applyFilter(filterValue: string) {
@@ -33,6 +37,14 @@ export class SaleConfirmComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onClickAccept(){
+
+  }
+
+  onClickReject(){
+    
   }
 
 }
