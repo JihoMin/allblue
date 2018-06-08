@@ -22,17 +22,6 @@ export class MySalesComponent implements OnInit {
 
     auth.user.subscribe(doc => {
       this.userID = doc.uid;
-      // this.salesCollection = afstore.collection('sales', ref => ref.where('userID', '==', doc.uid));
-
-      // this.saleSnapShot = this.saleCollection.snapshotChanges().pipe(
-      //   map(actions => actions.map(a => {
-      //     const data = a.payload.doc.data() as Sales;
-      //     const id = a.payload.doc.id;
-      //     return { id, data };
-      //   }))
-      // ).subscribe(S => {
-      //   this.my_sales = S;
-      // });
 
       let self = this;
       self.saleSnapShot = self.afstore.collection(`sales`, ref => ref

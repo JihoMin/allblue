@@ -17,6 +17,7 @@ export class SaleConfirmComponent implements OnInit {
   displayedColumns = ['position', 'name', 'accepted', 'action'];
   //dataSource = new MatTableDataSource(ELEMENT_DATA);
   salesID: string;
+  
   constructor(public afstore: AngularFirestore,private route: ActivatedRoute, private auth: AuthService){
     this.salesID = this.route.snapshot.paramMap.get('id');
     this.auth.user.subscribe(doc => {

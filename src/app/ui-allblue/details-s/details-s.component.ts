@@ -134,9 +134,9 @@ export class DialogOverviewExampleDialog {
   }
   onClick(): void{
     this.auth.user.subscribe( doc => {
-      this.salesCollection.doc(this.data.docID).collection('Joiners').add({
+      this.salesCollection.doc(this.data.docID).collection('joiners').add({
         "joinerID": doc.uid,
-        "isConfirmed": "false"
+        "state": "unconfirmed"
       })
     })
   }
