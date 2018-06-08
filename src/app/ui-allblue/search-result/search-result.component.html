@@ -14,19 +14,19 @@
                 <mat-card class="example-card">
                     <mat-card-header>
                       <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title >{{result.id}}</mat-card-title>
-                      <mat-card-subtitle>{{result.productName}}</mat-card-subtitle>
+                      <mat-card-title >{{result.data.title}}</mat-card-title>
+                      <mat-card-subtitle>{{result.data.productName}}</mat-card-subtitle>
                     </mat-card-header>
-                    <img mat-card-image src={{result.imageURL}} alt="Photo of a Shiba Inu">
+                    <img mat-card-image src={{result.data.imageURL}} alt="Photo of a Shiba Inu">
                     <mat-card-content>
                         <p>
-                          {{result.tag1}}
+                          {{result.data.tag1}}
                         </p>
                         <p>
-                          {{result.tag2}}
+                          {{result.data.tag2}}
                         </p>
                         <p>
-                          {{result.tag3}}
+                          {{result.data.tag3}}
                         </p>
                     </mat-card-content>
                     <button mat-button routerLink="/detail/{{result.id}}">Detail</button>

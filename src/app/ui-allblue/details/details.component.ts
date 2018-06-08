@@ -4,7 +4,11 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Sales } from '../../Sales';
-import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+//
+import { AngularFireDatabase, AngularFireAction } from 'angularfire2/database';
+import { Observable, Subscription, BehaviorSubject, Subject } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'details',
@@ -14,26 +18,25 @@ import { Observable } from 'rxjs';
 export class DetailsComponent implements OnInit {
   animal: string;
   name: string;
-  
-  //EJ
-  SalesDOC: AngularFirestoreDocument<Sales>;
-  id: string; 
-  //SALES: Observable<Sales>;
-  @Input() sales: Sales = {
-    date: '',
-    description: '',
-    place: '',
-    price: 0,
-    imageURL: '',
-    productName: '',
-    salesID: '',
-    time: 0,    
-    title: '',
-    userID: '',
-    tag1: '',
-    tag2: '',
-    tag3: '',
-  }
+  // //EJ
+  // SalesDOC: AngularFirestoreDocument<Sales>;
+  // SALES: Observable<Sales>;
+  // //sales: any;
+  // @Input() sales: Sales = {
+  //   date: '',
+  //   description: '',
+  //   place: '',
+  //   price: 0,
+  //   imageURL: '',
+  //   productName: '',
+  //   salesID: '',
+  //   time: 0,    
+  //   title: '',
+  //   userID: '',
+  //   tag1: '',
+  //   tag2: '',
+  //   tag3: '',
+  // }
 
   constructor(
     public dialog: MatDialog,
@@ -43,18 +46,20 @@ export class DetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getSales();
+    // this.getSales();
   }
-  
+ 
   // EJ
-  getSales(){
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.SalesDOC = this.afs.doc<Sales>('sales/' + this.id);
-    this.SalesDOC.valueChanges().subscribe(S => this.sales = S);
-    console.log(this.sales);
-    
-  }
-  //
+  // getSales(){
+  //   const id = this.route.snapshot.paramMap.get('id');
+  //   //console.log(id);
+  //   this.SalesDOC = this.afs.doc<Sales>('sales/' + id);
+  //   this.SALES = this.SalesDOC.valueChanges();
+  //   this.SALES.subscribe(S => this.sales = S);
+  //   console.log(this.sales);
+  
+  // }
+
 
   openDialog(): void {
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {

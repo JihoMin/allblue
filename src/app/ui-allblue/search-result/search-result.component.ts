@@ -73,7 +73,7 @@ export class SearchResultComponent implements OnInit {
         .limit(10))
         .snapshotChanges().pipe(
           map(actions => actions.map(a => {
-            const data = a.payload.doc.data() as Sales;
+            const data = a.payload.doc.data() as Sales; 
             const id = a.payload.doc.id;
             return {data, id};
           }))
@@ -99,6 +99,8 @@ export class SearchResultComponent implements OnInit {
   search_tag(tag) { // 대쉬보드에서 이 함수에 인자 넣어서 부르게 하기 
     let self = this;
     //self.search_tag = tag;
+    //console.log("받아온 태그 정보 : " + tag);
+
     if(self.searchValue_tag != ''){
       self.results_tag1 = self.afs.collection(`sales`, ref => ref
       .orderBy("tag1") 
@@ -108,7 +110,7 @@ export class SearchResultComponent implements OnInit {
       .valueChanges();
 
     self.results_tag2 = self.afs.collection(`sales`, ref => ref
-      .orderBy("tag2")
+      .orderBy("tag2") 
       .startAt(self.searchValue_tag)
       .endAt(self.searchValue_tag + "\uf8ff")
       .limit(10))
