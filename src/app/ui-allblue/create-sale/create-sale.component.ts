@@ -61,6 +61,7 @@ export class CreateSaleComponent implements OnInit {
     tag1: string,
     tag2: string,
     tag3: string,
+    account: string
   ) {
 
       let downloadURL;
@@ -92,6 +93,7 @@ export class CreateSaleComponent implements OnInit {
             'tag1': tag1,
             'tag2': tag2,
             'tag3': tag3,
+            'account': account
           }) 
         })
       })

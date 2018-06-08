@@ -1,0 +1,22 @@
+
+<div *ngIf="sale">
+  
+  <h1>제목: {{sale.title}}</h1>
+  <h5>#{{sale.tag1}} #{{sale.tag2}} #{{sale.tag3}}</h5>
+  <mat-divider></mat-divider>
+
+  <img src="{{sale.imageURL}}">
+
+  <h3>나눔 장소: {{sale.place}}</h3>
+  <h3>개당 가격: {{sale.price}}</h3>
+  <h3>일시: {{sale.date}}, {{sale.time}}</h3>
+  <h3>설명</h3>
+  <p>
+    {{sale.description}}
+  </p>
+
+</div>
+
+<button color="primary" mat-button width="300px" (click)="openDialog()">Join</button>
+
+

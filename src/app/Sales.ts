@@ -16,6 +16,7 @@ export interface Sales {
     tag1?: string; //
     tag2?: string; //
     tag3?: string; //
+    account?: string;
     joiner?: {
       joinerName?: string;
       userID?: string;

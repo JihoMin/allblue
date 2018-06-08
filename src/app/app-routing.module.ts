@@ -12,7 +12,7 @@ import { DashboardComponent } from './ui-allblue/dashboard/dashboard.component';
 import { SaleUpdateComponent } from './ui-allblue/sale-update/sale-update.component';
 import { SearchResultComponent } from 'src/app/ui-allblue/search-result/search-result.component';
 import { CreateSaleComponent } from 'src/app/ui-allblue/create-sale/create-sale.component';
-import { DetailsComponent } from 'src/app/ui-allblue/details/details.component';
+import { DetailsComponent } from 'src/app/ui-allblue/details-s/details-s.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
