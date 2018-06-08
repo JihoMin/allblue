@@ -139,6 +139,7 @@ export class DialogOverviewExampleDialog {
         "state": "unconfirmed"
       })
     })
+    this.dialogRef.close();
   }
   onNoClick(): void {
     this.dialogRef.close();
