@@ -1,6 +1,7 @@
 import { Observable } from "@firebase/util";
 
 export interface Sales {
+    id?: string;
     curTime?: string;
     date?: string;
     description?: string;
