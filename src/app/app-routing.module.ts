@@ -20,14 +20,14 @@ import { DetailsComponent } from 'src/app/ui-allblue/details/details.component';
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'login', component: UserLoginComponent },
-  { path: 'notes', component: NotesListComponent,  canActivate: [AuthGuard] },
-  { path: 'uploads',  component: UploadPageComponent,  canActivate: [AuthGuard] },
-  { path: 'ssr', component: SsrPageComponent },
+  //{ path: 'notes', component: NotesListComponent,  canActivate: [AuthGuard] },
+  //{ path: 'uploads',  component: UploadPageComponent,  canActivate: [AuthGuard] },
+  //{ path: 'ssr', component: SsrPageComponent },
   { path: 'dashboard', component: DashboardComponent},
   { path: 'my_sales', component: MySalesComponent},
   { path: 'sale_confirm/:id', component: SaleConfirmComponent},
   { path: 'sale_update', component: SaleUpdateComponent},
-  //{ path: 'search_result/:keyword', component: SearchResultComponent}, // 은지가 result page 수정함.
+  { path: 'search_result/:keyword', component: SearchResultComponent}, // 은지가 result page 수정함.
   { path: 'search_result', component: SearchResultComponent},
   { path: 'create_sale', component: CreateSaleComponent, canActivate: [AuthGuard]},
   { path: 'detail/:id', component: DetailsComponent}
