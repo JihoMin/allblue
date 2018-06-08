@@ -20,9 +20,9 @@ import { DetailsComponent } from 'src/app/ui-allblue/details/details.component';
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'login', component: UserLoginComponent },
-  //{ path: 'notes', component: NotesListComponent,  canActivate: [AuthGuard] },
-  //{ path: 'uploads',  component: UploadPageComponent,  canActivate: [AuthGuard] },
-  //{ path: 'ssr', component: SsrPageComponent },
+  { path: 'notes', component: NotesListComponent,  canActivate: [AuthGuard] },
+  { path: 'uploads',  component: UploadPageComponent,  canActivate: [AuthGuard] },
+  { path: 'ssr', component: SsrPageComponent },
   { path: 'dashboard', component: DashboardComponent},
   { path: 'my_sales', component: MySalesComponent},
   { path: 'sale_confirm/:id', component: SaleConfirmComponent},
