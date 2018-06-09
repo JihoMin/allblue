@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'app';
   search = '';
   constructor(
-    private auth: AuthService,
+    public auth: AuthService,
     private router: Router,
     private searchResult: SearchResultComponent,
   ) {
