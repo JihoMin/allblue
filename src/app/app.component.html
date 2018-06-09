@@ -11,7 +11,6 @@
       <p class="card-text">Login to get started...</p>
       <button class="button" routerLink="/login">Login</button>
     </ng-template>
-
     <!-- User logged in -->
     <ng-template #authenticated>
       <div *ngIf="auth.user | async as user">
@@ -55,20 +54,14 @@
     </h3>
   </div>
 
-  <div class="example-sidenav-content">
-    <div id="wrapper">
-      <div class="content columns">
-        <aside class="column is-1 is-offset-1">
-        </aside>
 
-        <main class="column is-8">
-          <notification-message></notification-message>
 
-          <router-outlet></router-outlet>
+  <div class="container">
 
-        </main>
-      </div>
+    <notification-message></notification-message>
+    <router-outlet></router-outlet>
 
-    </div>
   </div>
+
+
 </mat-drawer-container>

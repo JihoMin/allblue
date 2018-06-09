@@ -1,6 +1,6 @@
 .example-card {
     max-width: 250px; //padding: 0px;
-    margin: 20px;
+    margin: 15px;
 }
 
 .example-img{
@@ -12,5 +12,7 @@
 .flex-container {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
