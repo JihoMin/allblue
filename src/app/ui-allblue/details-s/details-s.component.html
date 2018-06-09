@@ -15,6 +15,13 @@
     {{sale.description}}
   </p>
 
+  <mat-selection-list #shoes>
+    <h1>Joiners</h1>
+    <mat-list-item *ngFor="let joiner of joiners | async">
+      이름:{{joiner.joinerName}} email:{{joiner.email}} 컨펌:{{joiner.state}} 
+    </mat-list-item>
+  </mat-selection-list>
+
 </div>
 
 <button color="primary" mat-button width="300px" (click)="openDialog()">Join</button>

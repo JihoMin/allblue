@@ -1,9 +1,9 @@
-/* Structure */
-table {
-    width: 100%;
+.example-card {
+  max-width: 250px; //padding: 0px;
+  margin: 20px;
 }
 
-.mat-form-field {
-    font-size: 14px;
-    width: 100%;
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
 }

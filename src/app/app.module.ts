@@ -26,7 +26,6 @@ import { DashboardComponent } from './ui-allblue/dashboard/dashboard.component';
 import { DetailsComponent, DialogOverviewExampleDialog } from './ui-allblue/details-s/details-s.component';
 import { MySalesComponent } from './ui-allblue/my-sales/my-sales.component';
 import { SaleConfirmComponent } from './ui-allblue/sale-confirm/sale-confirm.component';
-import { SaleUpdateComponent } from './ui-allblue/sale-update/sale-update.component';
 import { SearchResultComponent } from './ui-allblue/search-result/search-result.component';
 import { CreateSaleComponent } from './ui-allblue/create-sale/create-sale.component';
 
@@ -48,7 +47,6 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
     DetailsComponent,
     MySalesComponent,
     SaleConfirmComponent,
-    SaleUpdateComponent,
     SearchResultComponent,
     CreateSaleComponent,
     DialogOverviewExampleDialog,

@@ -2,45 +2,22 @@
 
 <h4>Join 한 사람들</h4>
 
-<mat-form-field>
-    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-</mat-form-field>
+<br>
+<br>
+<br>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-    <!-- Position Column  *ngFor="let join of joiners | async" -->
-    <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-
-    <!-- phonenumber Column -->
-    <ng-container matColumnDef="phonenumber">
-        <th mat-header-cell *matHeaderCellDef> Phone Number </th>
-        <td mat-cell *matCellDef="let element"> {{element.phonenumber}} </td>
-    </ng-container>
-
-    <!-- accepted Column -->
-    <ng-container matColumnDef="accepted">
-        <th mat-header-cell *matHeaderCellDef> Accepted </th>
-        <td mat-cell *matCellDef="let element"> {{element.accepted}} </td>
-    </ng-container>
-
-    <!-- buttons Column -->
-    <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef> Action </th>
-        <td mat-cell *matCellDef="let element"> 
-            <button mat-button color="primary">Accept</button> 
-            <button mat-button color="warn">Reject</button> 
-        </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<div class="flex-container">
+    <mat-card class="example-card" *ngFor="let joiner of joiners">
+        <mat-card-header>
+            <mat-card-title>{{joiner.data.joinerName}} </mat-card-title>
+            <mat-card-subtitle>{{joiner.data.email}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            State : {{joiner.data.state}}
+            <br>
+            <br>
+            <button mat-button color="primary" (click)="onClickAccept(joiner.id)">Accept</button>
+            <button mat-button color="warn" (click)="onClickReject(joiner.id)">Reject</button>
+        </mat-card-content>
+    </mat-card>
+</div>

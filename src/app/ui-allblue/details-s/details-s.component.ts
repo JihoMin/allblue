@@ -1,21 +1,20 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-//EJ
 import { ActivatedRoute } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Sales } from '../../Sales';
 import { map } from 'rxjs/operators';
-//
 import { AngularFireDatabase, AngularFireAction } from 'angularfire2/database';
 import { Observable, Subscription, BehaviorSubject, Subject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-
 import { AuthService } from '../../core/auth.service';
+
 @Component({
   selector: 'detailss',
   templateUrl: './details-s.component.html',
   styleUrls: ['./details-s.component.scss']
 })
+
 export class DetailsComponent implements OnInit {
   @Input() sale: Sales = {
     date: '',
@@ -33,10 +32,11 @@ export class DetailsComponent implements OnInit {
     tag3: '',
   }
 
+  joiners: Observable<any[]>;
+
   animal: string;
   name: string;
   id: string;
-
   salesCollection: AngularFirestoreCollection<any> = this.afs.collection('sales');
   // //EJ
   // SalesDOC: AngularFirestoreDocument<Sales>;
@@ -77,6 +77,7 @@ export class DetailsComponent implements OnInit {
       this.sale.userID = doc.data().userID;
       this.sale.account = doc.data().account;
     });
+    this.joiners=this.salesCollection.doc(this.id).collection('joiners').valueChanges();
   }
   openDialog(): void {
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
@@ -135,10 +136,13 @@ export class DialogOverviewExampleDialog {
   onClick(): void{
     this.auth.user.subscribe( doc => {
       this.salesCollection.doc(this.data.docID).collection('joiners').add({
+        "joinerName": doc.displayName,
         "joinerID": doc.uid,
-        "state": "unconfirmed"
+        "state": "unconfirmed",
+        "email": doc.email
       })
     })
+    this.dialogRef.close();
   }
   onNoClick(): void {
     this.dialogRef.close();
