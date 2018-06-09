@@ -1,23 +1,27 @@
-<h3>A Sale Confirm Page</h3>
+<div class="container">
+    <br>
+    <br>
+    <h3>A Sale Confirm Page</h3>
 
-<h4>Join 한 사람들</h4>
+    <h4>Join 한 사람들</h4>
 
-<br>
-<br>
-<br>
+    <br>
+    <br>
+    <br>
 
-<div class="flex-container">
-    <mat-card class="example-card" *ngFor="let joiner of joiners">
-        <mat-card-header>
-            <mat-card-title>{{joiner.data.joinerName}} </mat-card-title>
-            <mat-card-subtitle>{{joiner.data.email}}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            State : {{joiner.data.state}}
-            <br>
-            <br>
-            <button mat-button color="primary" (click)="onClickAccept(joiner.id)">Accept</button>
-            <button mat-button color="warn" (click)="onClickReject(joiner.id)">Reject</button>
-        </mat-card-content>
-    </mat-card>
+    <div class="flex-container">
+        <mat-card class="example-card" *ngFor="let joiner of joiners">
+            <mat-card-header>
+                <mat-card-title>{{joiner.data.joinerName}} </mat-card-title>
+                <mat-card-subtitle>{{joiner.data.email}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                State : {{joiner.data.state}}
+                <br>
+                <br>
+                <button mat-button color="primary" (click)="onClickAccept(joiner.id)">Accept</button>
+                <button mat-button color="warn" (click)="onClickReject(joiner.id)">Reject</button>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>

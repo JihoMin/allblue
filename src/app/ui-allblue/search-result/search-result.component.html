@@ -1,117 +1,123 @@
+<div class="container">
+  <br>
+  <div *ngIf="!keyword">
+    <div class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Product Name Search" (keyup)="search_productName()" [(ngModel)]="searchValue_productName">
+      </mat-form-field>
+    </div>
 
-<div *ngIf="!keyword">
-  <div class="example-form">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Product Name Search" (keyup)="search_productName()" [(ngModel)]="searchValue_productName">
-    </mat-form-field>
-  </div>
-
-  <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-    <h1><strong>상품명 검색 결과</strong></h1>
-    <div id="flex">
-      <a *ngFor="let result of sales">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{result.data.title}}</mat-card-title>
-            <mat-card-subtitle>{{result.data.productName}}</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image class="example-img"src={{result.data.imageURL}}>
-          <mat-card-content>
-            <p>
-              #{{result.data.tag1}}
-            </p>
-            <p>
-              #{{result.data.tag2}}
-            </p>
-            <p>
-              #{{result.data.tag3}}
-            </p>
-          </mat-card-content>
-          <button mat-button routerLink="/detail/{{result.id}}">Detail</button>
-        </mat-card>
-      </a>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+      <h1>
+        <strong>상품명 검색 결과</strong>
+      </h1>
+      <div id="flex">
+        <a *ngFor="let result of sales">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{result.data.title}}</mat-card-title>
+              <mat-card-subtitle>{{result.data.productName}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image class="example-img" src={{result.data.imageURL}}>
+            <mat-card-content>
+              <p>
+                #{{result.data.tag1}}
+              </p>
+              <p>
+                #{{result.data.tag2}}
+              </p>
+              <p>
+                #{{result.data.tag3}}
+              </p>
+            </mat-card-content>
+            <button mat-button routerLink="/detail/{{result.id}}">Detail</button>
+          </mat-card>
+        </a>
+      </div>
     </div>
   </div>
-</div>
 
-<div>
-  <!--
+  <div>
+    <!--
   <div class="example-form">
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Tag Search" (keyup)="search_tag()" [(ngModel)]="searchValue_tag">
     </mat-form-field>
   </div>
 -->
-  <div *ngIf="keyword" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-    <h1><strong>{{keyword}} 카테고리 검색 결과 </strong></h1>
-    <div id="flex">
-      <a *ngFor="let result of sales1">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{result.data.title}}</mat-card-title>
-            <mat-card-subtitle>{{result.data.productName}}</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src={{result.data.imageURL}} alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <p>
-              #{{result.data.tag1}}
-            </p>
-            <p>
-              #{{result.data.tag2}}
-            </p>
-            <p>
-              #{{result.data.tag3}}
-            </p>
-          </mat-card-content>
-          <button mat-button routerLink="/detail/{{result.id}}">Detail</button>
-        </mat-card>
-      </a>
-      <a *ngFor="let result of sales2">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{result.data.title}}</mat-card-title>
-            <mat-card-subtitle>{{result.data.productName}}</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src={{result.data.imageURL}} alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <p>
-              #{{result.data.tag1}}
-            </p>
-            <p>
-              #{{result.data.tag2}}
-            </p>
-            <p>
-              #{{result.data.tag3}}
-            </p>
-          </mat-card-content>
-          <button mat-button routerLink="/detail/{{result.id}}">Detail</button>
-        </mat-card>
-      </a>
-      <a *ngFor="let result of sales3">
-        <mat-card class="example-card">
-          <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{result.data.title}}</mat-card-title>
-            <mat-card-subtitle>{{result.data.productName}}</mat-card-subtitle>
-          </mat-card-header>
-          <img mat-card-image src={{result.data.imageURL}} alt="Photo of a Shiba Inu">
-          <mat-card-content>
-            <p>
-              #{{result.data.tag1}}
-            </p>
-            <p>
-              #{{result.data.tag2}}
-            </p>
-            <p>
-              #{{result.data.tag3}}
-            </p>
-          </mat-card-content>
-          <button mat-button routerLink="/detail/{{result.id}}">Detail</button>
-        </mat-card>
-      </a>
+    <div *ngIf="keyword" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+      <h1>
+        <strong>{{keyword}} 카테고리 검색 결과 </strong>
+      </h1>
+      <div id="flex">
+        <a *ngFor="let result of sales1">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{result.data.title}}</mat-card-title>
+              <mat-card-subtitle>{{result.data.productName}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src={{result.data.imageURL}} alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                #{{result.data.tag1}}
+              </p>
+              <p>
+                #{{result.data.tag2}}
+              </p>
+              <p>
+                #{{result.data.tag3}}
+              </p>
+            </mat-card-content>
+            <button mat-button routerLink="/detail/{{result.id}}">Detail</button>
+          </mat-card>
+        </a>
+        <a *ngFor="let result of sales2">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{result.data.title}}</mat-card-title>
+              <mat-card-subtitle>{{result.data.productName}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src={{result.data.imageURL}} alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                #{{result.data.tag1}}
+              </p>
+              <p>
+                #{{result.data.tag2}}
+              </p>
+              <p>
+                #{{result.data.tag3}}
+              </p>
+            </mat-card-content>
+            <button mat-button routerLink="/detail/{{result.id}}">Detail</button>
+          </mat-card>
+        </a>
+        <a *ngFor="let result of sales3">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{result.data.title}}</mat-card-title>
+              <mat-card-subtitle>{{result.data.productName}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src={{result.data.imageURL}} alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                #{{result.data.tag1}}
+              </p>
+              <p>
+                #{{result.data.tag2}}
+              </p>
+              <p>
+                #{{result.data.tag3}}
+              </p>
+            </mat-card-content>
+            <button mat-button routerLink="/detail/{{result.id}}">Detail</button>
+          </mat-card>
+        </a>
+      </div>
     </div>
   </div>
 </div>

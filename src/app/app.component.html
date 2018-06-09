@@ -1,4 +1,4 @@
-<mat-drawer-container class="example-container" autosize>
+<mat-drawer-container autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <div class="box">
       <div *ngIf="auth.user | async; then authenticated else guest">
@@ -45,23 +45,12 @@
     </mat-toolbar>
   </div>
 
-  <div class="upper" >
-    <h1 class="upper-text"> <b> ALL BLUE 는 식재료/생활용품 공유 플랫폼입니다 </b> <br> </h1>
-    <h3 class="upper-text2"> 
-        <p>식재료가 남아 고민일 때!</p>
-        <p>배송비를 아끼고 싶을 때!</p>
-        <p>마트보다 싸게 사고 싶을 때!</p>
-    </h3>
-  </div>
 
 
+  <notification-message></notification-message>
+  <router-outlet></router-outlet>
 
-  <div class="container">
 
-    <notification-message></notification-message>
-    <router-outlet></router-outlet>
-
-  </div>
 
 
 </mat-drawer-container>

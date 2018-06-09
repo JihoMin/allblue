@@ -1,7 +1,9 @@
-<article class="article">
+<div class="container">
+  <br><br>
+  <article class="article">
     <h2>나눔하기</h2>
     <div class="example-container">
-    
+
       <mat-form-field>
         <input matInput #title placeholder="제목">
       </mat-form-field>
@@ -9,46 +11,46 @@
       <mat-form-field>
         <input matInput #productName placeholder="상품명">
       </mat-form-field>
-    
+
       <mat-form-field>
         <input matInput #price placeholder="개당 가격">
       </mat-form-field>
-    
+
       <mat-form-field>
         <input matInput #date [matDatepicker]="picker" placeholder="나눔 날짜">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-    
+
       <mat-form-field>
         <mat-select #time placeholder="시간">
-            <mat-option value="1">1</mat-option>
-            <mat-option value="2">2</mat-option>
-            <mat-option value="3">3</mat-option>
-            <mat-option value="4">4</mat-option>
-            <mat-option value="5">5</mat-option>
-            <mat-option value="6">6</mat-option>
-            <mat-option value="7">7</mat-option>
-            <mat-option value="8">8</mat-option>
-            <mat-option value="9">9</mat-option>
-            <mat-option value="10">10</mat-option>
-            <mat-option value="11">11</mat-option>
-            <mat-option value="12">12</mat-option>
-            <mat-option value="13">13</mat-option>
-            <mat-option value="14">14</mat-option>
-            <mat-option value="15">15</mat-option>
-            <mat-option value="16">16</mat-option>
-            <mat-option value="17">17</mat-option>
-            <mat-option value="18">18</mat-option>
-            <mat-option value="19">19</mat-option>
-            <mat-option value="20">20</mat-option>
-            <mat-option value="21">21</mat-option>
-            <mat-option value="22">22</mat-option>
-            <mat-option value="23">23</mat-option>
-            <mat-option value="24">24</mat-option>
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
+          <mat-option value="4">4</mat-option>
+          <mat-option value="5">5</mat-option>
+          <mat-option value="6">6</mat-option>
+          <mat-option value="7">7</mat-option>
+          <mat-option value="8">8</mat-option>
+          <mat-option value="9">9</mat-option>
+          <mat-option value="10">10</mat-option>
+          <mat-option value="11">11</mat-option>
+          <mat-option value="12">12</mat-option>
+          <mat-option value="13">13</mat-option>
+          <mat-option value="14">14</mat-option>
+          <mat-option value="15">15</mat-option>
+          <mat-option value="16">16</mat-option>
+          <mat-option value="17">17</mat-option>
+          <mat-option value="18">18</mat-option>
+          <mat-option value="19">19</mat-option>
+          <mat-option value="20">20</mat-option>
+          <mat-option value="21">21</mat-option>
+          <mat-option value="22">22</mat-option>
+          <mat-option value="23">23</mat-option>
+          <mat-option value="24">24</mat-option>
         </mat-select>
       </mat-form-field>
-<!--
+      <!--
       <mat-form-field>
         <mat-select #minutes placeholder="분">
           <mat-option value="0">00</mat-option>
@@ -70,46 +72,46 @@
 
       <mat-form-field>
         <mat-select #tag1 placeholder="#tag">
-            <mat-option value="식재료">식재료</mat-option>
-            <mat-option value="밑반찬">밑반찬</mat-option>
-            <mat-option value="육류">육류</mat-option>
-            <mat-option value="생선류">생선류</mat-option>
-            <mat-option value="유제품">유제품</mat-option>
-            <mat-option value="채소/과일">채소/과일</mat-option>
-            <mat-option value="조미료/소스">조미료/소스</mat-option>
-            <mat-option value="즉석식품">즉석식품</mat-option>
-            <mat-option value="음료">음료</mat-option>
-            <mat-option value="생활용품">생활용품</mat-option>
+          <mat-option value="식재료">식재료</mat-option>
+          <mat-option value="밑반찬">밑반찬</mat-option>
+          <mat-option value="육류">육류</mat-option>
+          <mat-option value="생선류">생선류</mat-option>
+          <mat-option value="유제품">유제품</mat-option>
+          <mat-option value="채소/과일">채소/과일</mat-option>
+          <mat-option value="조미료/소스">조미료/소스</mat-option>
+          <mat-option value="즉석식품">즉석식품</mat-option>
+          <mat-option value="음료">음료</mat-option>
+          <mat-option value="생활용품">생활용품</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
         <mat-select #tag2 placeholder="#tag">
-            <mat-option value="식재료">식재료</mat-option>
-            <mat-option value="밑반찬">밑반찬</mat-option>
-            <mat-option value="육류">육류</mat-option>
-            <mat-option value="생선류">생선류</mat-option>
-            <mat-option value="유제품">유제품</mat-option>
-            <mat-option value="채소/과일">채소/과일</mat-option>
-            <mat-option value="조미료/소스">조미료/소스</mat-option>
-            <mat-option value="즉석식품">즉석식품</mat-option>
-            <mat-option value="음료">음료</mat-option>
-            <mat-option value="생활용품">생활용품</mat-option>
+          <mat-option value="식재료">식재료</mat-option>
+          <mat-option value="밑반찬">밑반찬</mat-option>
+          <mat-option value="육류">육류</mat-option>
+          <mat-option value="생선류">생선류</mat-option>
+          <mat-option value="유제품">유제품</mat-option>
+          <mat-option value="채소/과일">채소/과일</mat-option>
+          <mat-option value="조미료/소스">조미료/소스</mat-option>
+          <mat-option value="즉석식품">즉석식품</mat-option>
+          <mat-option value="음료">음료</mat-option>
+          <mat-option value="생활용품">생활용품</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field>
         <mat-select #tag3 placeholder="#tag">
-            <mat-option value="식재료">식재료</mat-option>
-            <mat-option value="밑반찬">밑반찬</mat-option>
-            <mat-option value="육류">육류</mat-option>
-            <mat-option value="생선류">생선류</mat-option>
-            <mat-option value="유제품">유제품</mat-option>
-            <mat-option value="채소">채소</mat-option>
-            <mat-option value="과일">과일</mat-option>
-            <mat-option value="조미료">조미료</mat-option>
-            <mat-option value="소스">소스</mat-option>
-            <mat-option value="즉석식품">즉석식품</mat-option>
-            <mat-option value="음료">음료</mat-option>
-            <mat-option value="생활용품">생활용품</mat-option>
+          <mat-option value="식재료">식재료</mat-option>
+          <mat-option value="밑반찬">밑반찬</mat-option>
+          <mat-option value="육류">육류</mat-option>
+          <mat-option value="생선류">생선류</mat-option>
+          <mat-option value="유제품">유제품</mat-option>
+          <mat-option value="채소">채소</mat-option>
+          <mat-option value="과일">과일</mat-option>
+          <mat-option value="조미료">조미료</mat-option>
+          <mat-option value="소스">소스</mat-option>
+          <mat-option value="즉석식품">즉석식품</mat-option>
+          <mat-option value="음료">음료</mat-option>
+          <mat-option value="생활용품">생활용품</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -120,31 +122,30 @@
       <h3>재료 사진 올리기</h3>
       <label for="file">File:</label>
       <input type="file" (change)="startUpload($event.target.files)" accept=".png,.jpg" />
-      
+
       <div *ngIf="percentage | async as pct">
 
-          <progress class="progress is-info" [value]="pct" max="100">
-          </progress>
-        
-          {{ pct | number }}%
-        
-        </div>
+        <progress class="progress is-info" [value]="pct" max="100">
+        </progress>
+
+        {{ pct | number }}%
+
+      </div>
 
       <div *ngIf="(snapshot | async) as snap">
-          {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }}
+        {{ snap.bytesTransferred | fileSize }} of {{ snap.totalBytes | fileSize }}
 
-          <div *ngIf="downloadURL | async as url">
-            <img [src]="url">
-            <br>
-          </div>
-          <hr>
+        <div *ngIf="downloadURL | async as url">
+          <img [src]="url">
+          <br>
+        </div>
+        <hr>
 
       </div>
 
       <br>
-      
-      <button color="primary" mat-button 
-      (click)="gaeshi(
+
+      <button color="primary" mat-button (click)="gaeshi(
                title.value, 
                productName.value, 
                price.value,
@@ -156,6 +157,7 @@
                tag2.value,
                tag3.value,
                account.value)">게시 하기</button>
-    
+
     </div>
   </article>
+</div>
